@@ -1,6 +1,9 @@
 # keab
 a very smol multi-threaded image compression utility written in rust , using turbojpeg and image library :>
 
+### why
+
+i am lazy 
 
 ### usage
 
