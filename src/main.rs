@@ -21,7 +21,7 @@ struct CliArguments {
 
 fn main() {
     let args = CliArguments::parse();
-    
+    println!("༼ つ ◕_◕ ༽つ keab-ing.. ");
     // find all jpeg jpg and png's courtesy of  
     // https://programming-idioms.org/idiom/177/find-files-for-a-list-of-filename-extensions/6352/rust
     let all_img: Vec<PathBuf> = read_dir(&args.folder) 
