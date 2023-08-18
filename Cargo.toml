@@ -11,5 +11,6 @@ anyhow = "1.0.75"
 clap = { version = "4.3.22", features = ["derive"] }
 glob = "0.3.1"
 image = "0.24.7"
+indicatif = "0.17.6"
 rayon = "1.7.0"
 turbojpeg = {version = "0.5", features = ["image"]}
