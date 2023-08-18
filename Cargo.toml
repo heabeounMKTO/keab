@@ -1,0 +1,15 @@
+[package]
+name = "keab"
+author = "heabeounMKTO"
+version = "0.1.0"
+edition = "2021"
+description = "nano multi-threaded image compressor thing"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.75"
+clap = { version = "4.3.22", features = ["derive"] }
+glob = "0.3.1"
+image = "0.24.7"
+rayon = "1.7.0"
+turbojpeg = {version = "0.5", features = ["image"]}
