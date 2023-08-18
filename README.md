@@ -7,7 +7,7 @@ am lazy
 
 ### usage
 
-download the binaries from the releases page
+download the binaries from the [releases](https://github.com/heabeounMKTO/keab/releases) page
 
 ```shell
 ./keab --folder path/to/image/folder --quality 10 --subsamp 422
