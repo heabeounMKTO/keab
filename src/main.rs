@@ -16,7 +16,10 @@ struct CliArguments {
     quality: i32,
 
     #[arg(long)]
-    subsamp: String 
+    subsamp: String,
+
+    #[arg(long)]
+    workers:Option<i64>  //yea i64 in case u freaks got a 300 core machine or some shit smh 
 }
 
 fn main() {
@@ -24,6 +27,12 @@ fn main() {
     println!("༼ つ ◕_◕ ༽つ keab-ing.. ");
     // find all jpeg jpg and png's courtesy of  
     // https://programming-idioms.org/idiom/177/find-files-for-a-list-of-filename-extensions/6352/rust
+    let workers = match &args.workers {
+        Some(ref i64) => args.workers,
+        None => Some(8), 
+    };
+    rayon::ThreadPoolBuilder::new().num_threads(workers.unwrap().try_into().unwrap()).build_global().unwrap(); 
+    
     let all_img: Vec<PathBuf> = read_dir(&args.folder) 
     .unwrap()
     .filter_map(|f| f.ok())
