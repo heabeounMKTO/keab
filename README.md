@@ -12,7 +12,7 @@ download the binaries from the [releases](https://github.com/heabeounMKTO/keab/r
 ```shell
 ./keab --folder path/to/image/folder --quality 10 --subsamp 422
 ```
-*note: this program will run on all threads unless `workers` is specified*
+*note: this program will run on 8 threads unless `workers` is specified*
 |options|what is it|
 |---|---|
 |`folder`|the folder with the pictures you want to compress|
