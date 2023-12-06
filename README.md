@@ -5,6 +5,14 @@ a very smol multi-threaded image compression utility written in rust , using `tu
 
 am lazy 
 
+### deps
+keab requires `nasm` to work, 
+
+```bash
+apt install nasm
+```
+
+
 ### usage
 
 download the binaries from the [releases](https://github.com/heabeounMKTO/keab/releases) page
