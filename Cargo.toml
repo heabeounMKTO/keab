@@ -10,10 +10,10 @@ description = "nano multi-threaded image compressor thing"
 anyhow = "1.0.75"
 clap = { version = "4.3.22", features = ["derive"] }
 glob = "0.3.1"
-image = "0.24.7"
+image = "0.25.5"
 indicatif = "0.17.6"
 rayon = "1.7.0"
-turbojpeg = {version = "0.5", features = ["image"]}
+turbojpeg = {version = "1.2.2", features = ["image"]}
 
 [profile.release]
 opt-level = "z"

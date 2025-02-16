@@ -22,6 +22,30 @@ struct CliArguments {
     workers:Option<i64>  //yea i64 in case u freaks got a 300 core machine or some shit smh 
 }
 
+
+fn keab_image(image_path: PathBuf, quality: i32, subsamp: turbojpeg::Subsamp) {
+    let img = image::open(&image_path).unwrap().into_rgb8();
+    turbojpeg::compress_image(&img, quality, subsamp).unwrap();
+
+    //maybe i will fix this idk lol
+    let compresssed_path = format!("compressed/{}.jpeg", &image_path.file_stem().unwrap().to_str().unwrap()); 
+    let newExt = format!("{}/{}", &image_path.parent().unwrap().to_str().unwrap() , &compresssed_path); 
+    
+    img.save(newExt).unwrap();
+} 
+
+fn get_subsamp(subsampling: &str) -> turbojpeg::Subsamp{
+    match subsampling.to_lowercase().as_str() {
+        "422" => turbojpeg::Subsamp::Sub2x1,
+        "420" => turbojpeg::Subsamp::Sub2x2,
+        "gray" => turbojpeg::Subsamp::Gray,
+        "411" => turbojpeg::Subsamp::Sub4x1,
+        "440" => turbojpeg::Subsamp::Sub1x2,
+        _ => turbojpeg::Subsamp::Sub2x2
+    }
+}
+
+
 fn main() {
     let args = CliArguments::parse();
     println!("༼ つ ◕_◕ ༽つ keab-ing.. ");
@@ -60,24 +84,3 @@ fn main() {
 
 }
 
-fn keab_image(image_path: PathBuf, quality: i32, subsamp: turbojpeg::Subsamp) {
-    let img = image::open(&image_path).unwrap().into_rgb8();
-    turbojpeg::compress_image(&img, quality, subsamp).unwrap();
-
-    //maybe i will fix this idk lol
-    let compresssed_path = format!("compressed/{}.jpeg", &image_path.file_stem().unwrap().to_str().unwrap()); 
-    let newExt = format!("{}/{}", &image_path.parent().unwrap().to_str().unwrap() , &compresssed_path); 
-    
-    img.save(newExt).unwrap();
-} 
-
-fn get_subsamp(subsampling: &str) -> turbojpeg::Subsamp{
-    match subsampling.to_lowercase().as_str() {
-        "422" => turbojpeg::Subsamp::Sub2x1,
-        "420" => turbojpeg::Subsamp::Sub2x2,
-        "gray" => turbojpeg::Subsamp::Gray,
-        "411" => turbojpeg::Subsamp::Sub4x1,
-        "440" => turbojpeg::Subsamp::Sub1x2,
-        _ => turbojpeg::Subsamp::Sub2x2
-    }
-}
